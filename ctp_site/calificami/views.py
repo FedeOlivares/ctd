@@ -3,7 +3,8 @@ from django.http import HttpResponse
 
 
 def index(request): 
-    return HttpResponse('Welcome! to CTD')
+    return render(request, 'calificami/index.html')
+
 
 def aboutus(request): 
     return HttpResponse('Welcome! to CTDs about us!')
