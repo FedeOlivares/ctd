@@ -1,0 +1,17 @@
+/* calificami/static/css/styles.css */
+
+/* Styles for all h1 elements */
+h1 {
+    background-color: #333;
+}
+
+/* Styles for a specific class */
+.special-text {
+    font-weight: bold;
+    color: red;
+}
+
+/* Styles for an element with a specific ID */
+#unique-element {
+    font-style: italic;
+}
