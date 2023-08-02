@@ -1,29 +1,33 @@
-/* calificami/static/css/styles.css */
-.container-fluid {
-    background-color: blue;
-    max-width: 35%;
-    margin-left: 0;
+
+.hamburger {
+  position: relative;
+  display:block;
+  width: 50px;
+  height: 50px;
+  appearance: none;
+  outline: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+
 }
 
-.navbar-collapse {
-    position: fixed;
-    top: 50px;
-    left: 0;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 15px;
+.hamburger .bar, .hamburger::after, .hamburger::before {
+  content:"";
+  display: block;
+  width: 100%;
+  height: 5px;
+  background-color: white;
+  margin: 10px 5px;
+  transition: 0.4s;
+  background: black;
+  border-radius: 9999px;
   }
-  
-  .navbar-collapse.collapsing {
-    left: -75%;
-    transition: height 0s ease;
+
+.hamburger.is-active::before {
+  transform: rotate(-45deg) translate(-9px);
   }
-  
-  .navbar-collapse.show {
-    left: 0;
-    transition: left 300ms ease-in-out;
-  }
-  
-  .navbar-toggler.collapsed~.navbar-collapse {
-    transition: left 500ms ease-in-out;
-  }
+
+  .hamburger.is-active::after {
+    transform: rotate(45deg) translate(9px);
+    }
