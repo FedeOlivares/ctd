@@ -1,0 +1,112 @@
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+:root {
+    --bar-width: 60px;
+    --bar-height: 8px;
+    --hamburger-gap: 7px;
+    --foreground: black;
+    --background: white;
+    --ham-margin: 15px;
+    --animation-timing: 250ms ease-in-out;
+    --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+}
+
+.hamburger {
+    --x-width: calc(var(--hamburger-height) * 1.41421356237);
+    background: none;
+    border-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--hamburger-gap);
+    border-radius: 9999px;
+    width: max-content;
+    position: absolute;
+    top: var(--ham-margin);
+    left: var(--ham-margin);
+    z-index: 99;
+    cursor: pointer;
+}
+
+.hamburger .bar,
+.hamburger::before,
+.hamburger::after {
+    content: "";
+    border-radius: 9999px;
+    transform-origin: left center;
+    width: var(--bar-width);
+    height: var(--bar-height);
+    background-color: var(--foreground);
+    transition: opacity var(--animation-timing), width var(--animation-timing), transform var(--animation-timing), background-color var(--animation-timing);
+}
+
+.hamburger.is-active .bar {
+    opacity: 0;
+    width: 0;
+}
+
+
+.hamburger.is-active::before {
+    transform: rotate(45deg) translate(0, calc(var(--bar-height) / -2));
+    width: var(--x-width);
+}
+
+.hamburger.is-active::after {
+    transform: rotate(-45deg)  translate(0, calc(var(--bar-height) / 2));
+    width: var(--x-width);
+}
+
+.sidebar {
+    transition: transform var(--animation-timing);
+    transform: translateX(-100%);
+    padding: 0.5rem 1rem;
+    padding-top: calc(var(--hamburger-height) + var(--ham-margin) + 1rem);
+    background-color: var(--foreground);
+    color: var(--background);
+    max-width: 10rem;
+    min-height: 100vh;
+}
+
+.mobile-nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 100%;
+    width: 70%;
+    min-height: 100vh;
+    display: block;
+    z-index: 98;
+    background-color: grey;
+    padding-top: 120px;
+    transition: 0.4s;
+}
+
+.mobile-nav.is-active {
+    right: 0;
+}
+
+.mobile-nav a {
+    display: block;
+    text-align: center;
+    width: 100%;
+    max-width: 200px;
+    margin: 16px auto 0;
+    margin-bottom: 16px;
+    padding: 8px;
+    background-color: rgb(235, 92, 92);
+    color: white;
+    text-decoration: none;
+}
+
+.mobile-nav a:hover {
+    background-color: rgb(153, 45, 45);
+
+}
