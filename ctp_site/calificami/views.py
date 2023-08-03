@@ -8,3 +8,6 @@ def index(request):
 
 def aboutus(request): 
     return HttpResponse('Welcome! to CTDs about us!')
+
+def login(request):
+    return render(request, 'calificami/login.html')
