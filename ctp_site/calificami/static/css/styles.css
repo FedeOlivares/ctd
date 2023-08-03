@@ -55,18 +55,18 @@ body {
 
 
 .hamburger.is-active::before {
-    transform: rotate(45deg) translate(0, calc(var(--bar-height) / -2));
+    transform: rotate(35deg) translate(2px, calc(var(--bar-height) / -2));
     width: var(--x-width);
 }
 
 .hamburger.is-active::after {
-    transform: rotate(-45deg)  translate(0, calc(var(--bar-height) / 2));
+    transform: rotate(-35deg) translate(2px, calc(var(--bar-height) / 2));
     width: var(--x-width);
 }
 
 .sidebar {
     transition: transform var(--animation-timing);
-    transform: translateX(-100%);
+    transform: translateX(50%);
     padding: 0.5rem 1rem;
     padding-top: calc(var(--hamburger-height) + var(--ham-margin) + 1rem);
     background-color: var(--foreground);
@@ -79,8 +79,8 @@ body {
     display: block;
     position: fixed;
     top: 0;
-    right: 100%;
-    width: 70%;
+    right: 0%;
+    width: 55vw;
     min-height: 100vh;
     display: block;
     z-index: 98;
@@ -90,7 +90,7 @@ body {
 }
 
 .mobile-nav.is-active {
-    right: 0;
+    right: 45vw;
 }
 
 .mobile-nav a {
@@ -107,6 +107,6 @@ body {
 }
 
 .mobile-nav a:hover {
-    background-color: rgb(153, 45, 45);
+    background-color: rgb(0, 45, 45);
 
 }
