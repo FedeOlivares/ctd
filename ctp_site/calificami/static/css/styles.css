@@ -12,7 +12,7 @@ body {
 }
 
 :root {
-    --bar-width: 60px;
+    --bar-width: 50px;
     --bar-height: 8px;
     --hamburger-gap: 7px;
     --foreground: black;
@@ -56,12 +56,12 @@ body {
 }
 
 .hamburger.is-active::before {
-    transform: rotate(45deg) translate(-1.8px, calc(var(--bar-height) / -2));
+    transform: rotate(45deg) translate(0, calc(var(--bar-height) / -2));
     width: var(--x-width);
 }
 
 .hamburger.is-active::after {
-    transform: rotate(-45deg) translate(-2px, calc(var(--bar-height) / 2));
+    transform: rotate(-45deg) translate(0, calc(var(--bar-height) / 2));
     width: var(--x-width);
 }
 
@@ -104,8 +104,8 @@ body {
 }
 
 .brand {
-    display: grid;
-    flex-direction: row-reverse;
+    display: block;
+    align-items: left;
 }
 
 .login-body { 
@@ -121,7 +121,7 @@ body {
 }
 
 .log-container {
-    border-radius: 15vw;
+    border-radius: 12vw;
     height: 50%;
     width: 66.67%; /* 2/3 of width */
     padding: 20px;
@@ -146,7 +146,18 @@ body {
     margin-bottom: 20px;
 }
 
-.login-form label,
+.login-form label {
+    display: block;
+    margin-left: 3vw;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 0.9vh;
+    margin-top: 2.5vh;
+    border-radius: 9999px;
+    border-style: none;
+}
+
+
 .login-form input,
 .login-form button {
     display: block;
@@ -172,7 +183,7 @@ body {
 .regis-text {
     display: block;
     text-align: center;
-    margin-top: 2vh;
+    margin-top: 1vh;
 }
 
 .regis-text a {
@@ -182,8 +193,49 @@ body {
 
 .calm-text {
     display: block;
-    text-align: center;
+    text-align: left;
     margin-top: 2vh;
     font-size: 0.8rem;
     font-style: italic;
+    padding-left: 0.5vw;
+
 }
+
+.calm-text a {
+    color: #B6ACAA;
+    padding-left: 0.5vw;
+    text-align: left;
+}
+
+.footerText {
+    display: block;
+    text-align: left;
+    margin-left: 1.5vw;
+    margin-right: 1.5vw;
+    margin-bottom: 2vw;
+    font-size: 0.65rem;
+    font-style: italic;
+}
+
+.container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100vw;
+  }
+  
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 33.35vw;
+  }
+  
+  .main-text {
+    margin-bottom: 5px;
+  }
+  
+  .subtext {
+    text-align: center;
+  }
+  
