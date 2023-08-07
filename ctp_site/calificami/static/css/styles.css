@@ -111,27 +111,27 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-  }
-  
-  .brandMain {
+}
+
+.brandMain {
     flex: 1;
     text-align: right;
     font-size: 1.8rem;
     margin-top: 2.2vh;
     margin-right: 3vw;
-  }
-  
-  .brandSub {
+}
+
+.brandSub {
     flex: 1;
     text-align: right;
     font-size: 0.9rem;
     margin-top: -1vh;
     margin-right: 5vw;
-  }
+}
 
 
-.login-body { 
-    height:fit-content;
+.login-body {
+    height: fit-content;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -139,13 +139,13 @@ body {
     min-height: 80vh;
     color: #cfc3c1;
     z-index: 10;
-    
+
 }
 
 .log-container {
     border-radius: 12vw;
     margin: auto;
-    width: 66.67%; 
+    width: 66.67%;
     padding: 20px;
     display: block;
     justify-content: center;
@@ -240,7 +240,7 @@ body {
     font-style: italic;
 }
 
-#text div {
+.welcomeScroll div {
     display: inline-block;
     font-size: 2rem;
     font-weight: 250;
@@ -250,44 +250,82 @@ body {
     text-align: center;
     position: absolute;
     animation: appear 2s;
-    top: 20%;
-  }
-  @keyframes appear {
+    top: 12.5%;
+    background-color: #5a5044;
+    margin-right: 3vw;
+    margin-left: 3vw;
+}
+
+
+@keyframes appear {
     from {
-        top: 100%;
+        top: 100vh;
     }
+
     to {
-        top: 20%;
+        top: 12.5vh;
     }
-  }
-  @-moz-keyframes appear {
+}
+
+@-moz-keyframes appear {
+
     /* Firefox */
     from {
-        top: 100%;
+        top: 100vh;
     }
+
     to {
-        top: 20%;
+        top: 12.5vh;
     }
-  }
-  @-webkit-keyframes appear {
+}
+
+@-webkit-keyframes appear {
+
     /* Safari and Chrome */
     from {
-        top: 100%;
+        top: 100vh;
     }
+
     to {
-        top: 20%;
+        top: 12.5vh;
     }
-  }
-  @-o-keyframes appear {
+}
+
+@-o-keyframes appear {
+
     /* Opera */
     from {
-        top: 100%;
+        top: 100vh
     }
-    to {
-        top: 20%;
-    }
-  }
 
-#subtext { 
+    to {
+        top: 12.5vh;
+    }
+}
+
+#subtext {
     font-size: 1.5rem;
 }
+
+.initial_cta {
+    display: block;
+    position: relative;
+    top: 12.5vh;
+    margin-top: 12.5vh;
+    text-align: center;
+    animation: appear 2s;
+
+}
+
+.cta_button {
+    padding-left: 8vw;
+    padding-right: 8vw;
+    border-radius: 9999px;
+    border-color: transparent;
+    border-style: solid;
+    background-color: #8A7360;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-size: 1.35rem;
+}
+
+
