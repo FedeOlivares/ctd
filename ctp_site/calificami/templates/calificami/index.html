@@ -3,13 +3,15 @@
 
 
 {% block body %} 
+<div class="container">
     <div class="welcomeScroll">
-        <div>Tenes algo qué decir?
-            Ahora los estudiantes ponemos la nota</div>
+        <div>Todo lo que queres saber de tu facultad en un solo lugar</div>
     </div>
-    <div>
-        <form class="initial_cta">
-            <button class="cta_button" type="submit" value="" name="cta">Llamado a la accion en index</input>
-        </form>
-    </div>
+    <form class="initial_cta">
+        <button class="cta_button" type="submit" value="browse" name="cta"><span>Comenzá a leer sin una cuenta</span></button>
+    </form>
+    <form class="initial_cta">
+        <button class="cta_button" type="submit" value="register" name="register"><span>Ingresá acá</span></button>
+    </form>
+</div>
 {% endblock %}
