@@ -241,12 +241,15 @@ body {
 }
 
 .welcomeScroll {
+    max-width: 80%;
+    /* Adjust the width as needed */
+    margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     animation: appear 2s;
-    animation-fill-mode: forwards; 
+    animation-fill-mode: forwards;
 }
 
 .welcomeScroll div {
@@ -267,7 +270,8 @@ body {
     text-align: center;
     animation: appear 2s;
     animation-fill-mode: forwards;
-    margin-top: 2vw; /* Adjusts button-text spacing */
+    margin-top: 2vw;
+    /* Adjusts button-text spacing */
 }
 
 .cta_button {
@@ -292,4 +296,14 @@ body {
         opacity: 1;
         transform: translateY(1.5vh);
     }
+}
+
+.thisismyclass {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 2vh;
+    background-color: wheat;
+    z-index: 35;
 }
