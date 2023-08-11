@@ -111,6 +111,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+
 }
 
 .brandMain {
@@ -119,6 +120,8 @@ body {
     font-size: 1.8rem;
     margin-top: 2.2vh;
     margin-right: 3vw;
+    text-decoration: none;
+    color: #393127;
 }
 
 .brandSub {
@@ -127,6 +130,17 @@ body {
     font-size: 0.9rem;
     margin-top: -1vh;
     margin-right: 5vw;
+    text-decoration: none;
+    color: #393127;
+}
+
+.brandMain:active {
+    color: #8A7360;
+}
+
+
+.brandSub:active {
+    color: #8A7360;
 }
 
 
@@ -238,21 +252,23 @@ body {
     margin-bottom: 1vh;
     font-size: 0.65rem;
     font-style: italic;
+    z-index: 5;
 }
 
 .welcomeScroll {
-    max-width: 80%;
     /* Adjust the width as needed */
     margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    animation: appear 2s;
+    animation: appear 1s;
     animation-fill-mode: forwards;
 }
 
 .welcomeScroll div {
+    max-width: 95vw;
+    min-width: 85vw;
     font-size: 1.8rem;
     font-weight: 250;
     padding: 10px;
@@ -268,9 +284,10 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    animation: appear 2s;
+    animation: appear 1500ms;
     animation-fill-mode: forwards;
-    margin-top: 2vw;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
     /* Adjusts button-text spacing */
 }
 
@@ -280,7 +297,7 @@ body {
     border: none;
     background-color: #8A7360;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: #B6ACAA;
     cursor: pointer;
 }
@@ -298,12 +315,11 @@ body {
     }
 }
 
-.thisismyclass {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-top: 2vh;
+.intro1 {
     background-color: wheat;
-    z-index: 35;
+    margin: 3vh 4vw 5vh 4vw; 
+    padding: 2vh 4vw 5vh 3vw;
+    text-align: center;
+    opacity: 60;
+    z-index: 0;
 }

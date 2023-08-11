@@ -7,7 +7,10 @@ def index(request):
 
 
 def aboutus(request): 
-    return HttpResponse('Welcome! to CTDs about us!')
+    return render(request, 'calificami/about.html')
 
 def login(request):
     return render(request, 'calificami/login.html')
+
+def privacy(request):
+    return render(request, 'calificami/privacy.html')
