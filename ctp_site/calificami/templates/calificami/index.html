@@ -2,10 +2,31 @@
 
 
 
-{% block body %} 
-    <div id="text">
-        <div>Tenes algo qué decir?
-            Ahora los estudiantes ponemos la nota</div>
-            
-    </div>
+{% block body %}
+
+<div class="welcomeScroll">
+    <div class="section">Todo lo que queres saber de tu facultad en un solo lugar</div>
+</div>
+<form class="initial_cta">
+    <button class="cta_button" type="submit" value="browse" name="cta"><span>Comenzá a leer sin una
+            cuenta</span></button>
+</form>
+<form class="initial_cta">
+    <button class="cta_button" type="submit" value="register" name="register"><span>Ingresá acá</span></button>
+</form>
+
+<!--<div class="welcomeScroll" id="facultades">
+    <div class="section">Buscá basado en tu facultad</div>
+</div>
+<div class="welcomeScroll" id="cursos">
+    <div class="section">Buscá basado en curso, consejos, docentes y más</div>
+</div>-->
+<div class="thisismyclass">
+    <h2>Ahora los estudiantes tenemos voz</h2>
+    <p> Califica tu docente funciona con un simple objetivo: que estudiantes de todas las carreras, 
+        de todas las facultades puedan venir y dejar sus consejos, opiniones y observaciones sobre 
+        docentes, materias y carreras</p>
+</div>
+
+
 {% endblock %}

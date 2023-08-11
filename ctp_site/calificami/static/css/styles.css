@@ -111,27 +111,27 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-  }
-  
-  .brandMain {
+}
+
+.brandMain {
     flex: 1;
     text-align: right;
     font-size: 1.8rem;
     margin-top: 2.2vh;
     margin-right: 3vw;
-  }
-  
-  .brandSub {
+}
+
+.brandSub {
     flex: 1;
     text-align: right;
     font-size: 0.9rem;
     margin-top: -1vh;
     margin-right: 5vw;
-  }
+}
 
 
-.login-body { 
-    height:fit-content;
+.login-body {
+    height: fit-content;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -139,13 +139,13 @@ body {
     min-height: 80vh;
     color: #cfc3c1;
     z-index: 10;
-    
+
 }
 
 .log-container {
     border-radius: 12vw;
     margin: auto;
-    width: 66.67%; 
+    width: 66.67%;
     padding: 20px;
     display: block;
     justify-content: center;
@@ -240,54 +240,70 @@ body {
     font-style: italic;
 }
 
-#text div {
-    display: inline-block;
-    font-size: 2rem;
+.welcomeScroll {
+    max-width: 80%;
+    /* Adjust the width as needed */
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    animation: appear 2s;
+    animation-fill-mode: forwards;
+}
+
+.welcomeScroll div {
+    font-size: 1.8rem;
     font-weight: 250;
     padding: 10px;
     border-radius: 5px;
     text-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    position: absolute;
-    animation: appear 2s;
-    top: 20%;
-  }
-  @keyframes appear {
-    from {
-        top: 100%;
-    }
-    to {
-        top: 20%;
-    }
-  }
-  @-moz-keyframes appear {
-    /* Firefox */
-    from {
-        top: 100%;
-    }
-    to {
-        top: 20%;
-    }
-  }
-  @-webkit-keyframes appear {
-    /* Safari and Chrome */
-    from {
-        top: 100%;
-    }
-    to {
-        top: 20%;
-    }
-  }
-  @-o-keyframes appear {
-    /* Opera */
-    from {
-        top: 100%;
-    }
-    to {
-        top: 20%;
-    }
-  }
+    background-color: #5a5044;
+    margin: 3vw;
+    color: #B6ACAA;
+}
 
-#subtext { 
-    font-size: 1.5rem;
+.initial_cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    animation: appear 2s;
+    animation-fill-mode: forwards;
+    margin-top: 2vw;
+    /* Adjusts button-text spacing */
+}
+
+.cta_button {
+    min-width: 85vw;
+    border-radius: 9999px;
+    border: none;
+    background-color: #8A7360;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-size: 1rem;
+    color: #B6ACAA;
+    cursor: pointer;
+}
+
+/* Keyframes */
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(-100vh);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(1.5vh);
+    }
+}
+
+.thisismyclass {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 2vh;
+    background-color: wheat;
+    z-index: 35;
 }
