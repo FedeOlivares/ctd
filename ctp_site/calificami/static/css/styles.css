@@ -316,10 +316,30 @@ body {
 }
 
 .intro1 {
-    background-color: wheat;
-    margin: 3vh 4vw 5vh 4vw; 
-    padding: 2vh 4vw 5vh 3vw;
+    position: relative;
+    margin: 3vh 4vw 1.5vh 4vw; 
+    padding: 2vh 4vw 2vh 3vw;
     text-align: center;
-    opacity: 60;
     z-index: 0;
+    background-image: 
+        linear-gradient(transparent 0, transparent 1px, wheat 1px, wheat 2px),
+        linear-gradient(to bottom, #e4c47e, wheat);
+    background-size: 100% 1.7rem, 100% 100%;
+    background-repeat: repeat-y;
+}
+
+.privacyText {
+    font-size: 1rem;
+}
+
+.privacyFooter {
+    position: relative;
+    margin: 3vh 4vw 8vh 4vw; 
+    padding: 2vh 4vw 1vh 3vw;
+    text-align: center;
+    background-image: 
+        linear-gradient(transparent 0, transparent 1px, wheat 1px, wheat 2px),
+        linear-gradient(to bottom, #e4c47e, wheat);
+    background-size: 100% 1.7rem, 100% 100%;
+    background-repeat: repeat-y;
 }
