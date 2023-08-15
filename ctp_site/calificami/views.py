@@ -11,3 +11,7 @@ def aboutus(request):
 
 def login(request):
     return render(request, 'calificami/login.html')
+
+def register(request):
+    return render(request, 'calificami/register.html')
+
