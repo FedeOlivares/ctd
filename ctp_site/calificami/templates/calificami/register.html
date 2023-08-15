@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+
+
+{% block body %} 
+    <div class="login-body">
+        <div class="log-container">
+            <form class="login-form">
+                <h2>Registrate</h2>
+                <input type="text" id="username" name="username" placeholder=" Email" required>
+                <input type="password" id="password" name="password" placeholder=" Contraseña">
+                <input type="password2" id="password2" name="password2" placeholder=" Repetí la contraseña" required>
+                <button type="submit">Registrarme</button>
+            </form>
+            <div class="regis-text">
+                Ya eres usuario?<br><a href="/login">Ingresá!</a>
+            </div>
+            <div class="calm-text">
+                Todos  tus datos son anónimos, <b>si deseas retirar tu presencia en el sitio, <a href="#">contactanos</a></b>
+            </div>
+        </div>
+    </div>
+{% endblock %}
