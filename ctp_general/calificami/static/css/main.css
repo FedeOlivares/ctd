@@ -343,3 +343,25 @@ body {
     background-size: 100% 1.7rem, 100% 100%;
     background-repeat: repeat-y;
 }
+
+
+.comment {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    }
+
+.comment div {
+    max-width: 95vw;
+    min-width: 85vw;
+    font-size: 1.8rem;
+    font-weight: 250;
+    padding: 10px;
+    border-radius: 5px;
+    text-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+    background-color: #5a5044;
+    margin: 3vw;
+    color: #B6ACAA;
+}
