@@ -1,24 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
-
-posts = [
-    {
-        'author': 'Fede',
-        'course': 'Pediatria',
-        'title': 'Cecilia',
-        'content': 'Es buen docente',
-        'date': '28 de Octubre, 2023',
-    },
-    {
-        'author': 'Ana',
-        'course': 'Ginecologia',
-        'title': 'trombotti',
-        'content': 'Es mal docente',
-        'date': '28 de Octubre, 2023',
-    }
-
-]
+from .models import Post
 
 def index(request): 
     return render(request, 'calificami/index.html', {'title': 'Home'} )
@@ -38,6 +20,6 @@ def privacy(request):
 
 def home(request): 
     context = {
-        'posts' :  posts
+        'posts' :  Post.objects.all()
     }
     return render(request, 'calificami/home.html', context )

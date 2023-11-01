@@ -25,12 +25,14 @@ SECRET_KEY = "django-insecure-hequ=h82!u=$)dfsp*3b6@7(t3jqwu(lw!u6wfrqio*mla4yc8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS = ['https://*.github.dev/','https://*.127.0.0.1']
 
 # Application definition
 
 INSTALLED_APPS = [
+    'users',
     'calificami',
     "django.contrib.admin",
     "django.contrib.auth",
