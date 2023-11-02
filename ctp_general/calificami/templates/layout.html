@@ -30,15 +30,20 @@
         </button>
 
         <div class="brand">
-          <a href="/index" class="brandMain">CalificaTuDocente</da>
-          <a href="/index" class="brandSub">Por estudiantes, para estudiantes</a>
+          <a href="{% url 'ctd-index' %}" class="brandMain">CalificaTuDocente</da>
+          <a href="{% url 'ctd-index' %}" class="brandSub">Por estudiantes, para estudiantes</a>
         </div>
       </header>
 
       <main>
-      {% block body %}
-      
-      {% endblock %}
+        {% if messages %}
+          {% for message in messages%}
+            <div class="alert alert-{{ message.tags }}"> {{ message }} </div>
+          {% endfor %}
+        {% endif %}
+
+        {% block body %}
+        {% endblock %}
       </main>
 
       <footer>

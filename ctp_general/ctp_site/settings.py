@@ -27,13 +27,16 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['https://*.github.dev/','https://*.127.0.0.1', 'https://localhost:8001']
+CSRF_TRUSTED_ORIGINS = ['https://*.github.dev/','https://*.127.0.0.1', 'https://localhost:8001', 
+'https://localhost:8000', 'https://localhost:8080']
 
 # Application definition
 
 INSTALLED_APPS = [
     'users',
     'calificami',
+    "crispy_forms",
+    "crispy_bootstrap5",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -41,6 +44,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
