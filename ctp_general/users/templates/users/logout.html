@@ -1,0 +1,12 @@
+{% extends "../layout.html" %}
+
+{% block body %} 
+<div class="login-body">
+    <div class="log-container">
+        <h2 class="text-center">Has cerrado sesión correctamente!</h2>
+        <div class="regis-text">
+            <br><a href="{% url 'login'%}">Vuelve a iniciar sesión</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
