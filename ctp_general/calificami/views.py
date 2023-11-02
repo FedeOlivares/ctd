@@ -12,8 +12,8 @@ def aboutus(request):
 def login(request):
     return render(request, 'calificami/login.html', {'title': 'Entrar'} )
 
-def register(request):
-    return render(request, 'calificami/register.html', {'title': 'Registrate'} )
+#def register(request):
+#    return render(request, 'calificami/register.html', {'title': 'Registrate'} )
 
 def privacy(request):
     return render(request, 'calificami/privacy.html', {'title': 'Privacidad'} )

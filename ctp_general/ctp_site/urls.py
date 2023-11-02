@@ -22,6 +22,6 @@ from users import views as user_views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include('calificami.urls')),
-    path("registrame/", user_views.registrame, name="registrame")
+    path("register/", user_views.register, name="register")
 
 ]
