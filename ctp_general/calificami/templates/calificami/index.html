@@ -7,11 +7,11 @@
     <div class="welcomeScroll">
         <div class="section">Todo lo que queres saber de tu facultad en un solo lugar</div>
     </div>
-    <form class="initial_cta" action="{% url 'ctd-home' %}">
+    <form class="initial_cta" action="/login">
         <button class="cta_button" type="submit" value="browse" name="cta"><span>Comenzá a leer sin una
                 cuenta</span></button>
     </form>
-    <form class="initial_cta" action="{% url 'ctd-login' %}">
+    <form class="initial_cta" action="/login">
         <button class="cta_button" type="submit" value="register" name="register" ><span>Ingresá acá</span></button>
     </form>
 
@@ -29,5 +29,3 @@
         docentes, materias y carreras</p>
 </div>
 {% endblock %}
-
-

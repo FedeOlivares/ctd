@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['https://*.github.dev/','https://*.127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://*.github.dev/','https://*.127.0.0.1', 'https://localhost:8001']
 
 # Application definition
 
