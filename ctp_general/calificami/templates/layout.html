@@ -18,19 +18,25 @@
     <body>
       <header>
         <nav class="mobile-nav">
+
+          {% if user.is_authenticated %}
+          <a href="{% url 'profile' %}">Mi perfil</a>
+          <a href="{% url 'logout' %}">Cerrar Sesión</a>
+          <a href="{% url 'post-create' %}">Nueva Opinión</a>
+          
+          {% else %}
+        
+          <a href="{% url 'login' %}">Ingresar</a>
+          <a href="{% url 'register' %}">Creá tu cuenta</a>
+          {% endif %}
+
           <a href="{% url 'ctd-about' %}">Quienes somos</a>
           <a href="{% url 'ctd-privacy' %}">Privacidad</a>
           <a href="#">Uso correcto</a>
           <a href="#">Contacto</a>
           <a href="#">FAQ</a>
 
-          {% if user.is_authenticated %}
-          <a href="{% url 'profile' %}">Mi perfil</a>
-          <a href="{% url 'logout' %}">Cerrar Sesión</a>
-          {% else %}
-          <a href="{% url 'login' %}">Ingresar</a>
-          <a href="{% url 'register' %}">Creá tu cuenta</a>
-          {% endif %}
+       
 
         </nav>
         <button class="hamburger">
