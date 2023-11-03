@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+ 
+
+{% block body %}
+ 
+<div class="container">
+    <div class="card bg-transparent row-hover pos-relative py-3 px-4 mb-3 border-warning border-top-5 border-right-5 border-bottom-5 rounded-5 common-style" style="max-width: 90vw; margin: auto; margin-top: 1vh">
+        <form method="post" action="{% url 'post-delete' object.id %}">
+            {% csrf_token %}
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h3 class="text-light ">
+                        Estas seguro que quiere borrar este post? No hay forma de recuperar un post borrado.
+                    </h3>
+                    <div class="form-group">
+                        <button class="btn btn-outline-danger" type="submit"> Borrar Post </button>
+                        <a class="btn btn-outline-info" href="{% url 'post-detail' object.id %}"> No, volver </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock body %}

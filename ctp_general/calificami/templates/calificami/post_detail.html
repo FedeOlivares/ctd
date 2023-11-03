@@ -3,40 +3,36 @@
  
 
 {% block body %}
-  {% for post in posts %}
-        
-  <div class="container">
+
+<div class="container">
     <div class="row">
       <div class="card bg-transparent row-hover pos-relative py-3 px-4 mb-3 border-warning border-top-5 border-right-5 border-bottom-5 rounded-5 common-style" style="max-width: 90vw; margin: auto; margin-top: 1vh">
         <div class="row align-items-center">
           <div class="col-md-1 mb-3 mb-sm-0 align-self-start" style="margin-right: 0.5vw;">
             <img src="{{ post.author.profile.image.url }}" class="rounded-circle" style="max-width: 6vw; min-width: 6vw;">
           </div>
-
           <div class="col-md-8">
-            <h3>
-              <a href=" {% url 'post-detail' post.id %} " class="text-primary"> {{ post.title }} </a>
-            </h3>
-            {% if post.author == user %}
-            <a class="btn btn-secondary btn-sm mt-1 mb-1 float-left" href="{% url 'post-update' post.id %}"> Editar </a>
-            <a class="btn btn-danger btn-sm mt-1 mb-1 float-left" href="{% url 'post-delete' post.id %}"> Eliminar </a>  
-            {% endif %}
+            <h3 class="text-primary"> {{ object.title }} </h3>
             <p class="text-sm" style="font-size: 0.9rem;">
               <span class="op-6"> Publicado el </span>
-              <a class="text-black" href="#"> {{ post.datePosted|date:"D j, E Y" }} </a>
+              <a class="text-black" href="#"> {{ object.datePosted|date:"D j, E Y" }} </a>
               <span class="op-6"> por </span>
-              <a class="text-black" href="#"> {{ post.author }} </a>
+              <a class="text-black" href="#"> {{ object.author }} </a>
+              {% if object.author == user %}
+              <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}"> Editar </a>
+              <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}"> Eliminar </a>  
+              {% endif %}
             </p>
-            <p class="text-m" style="margin: 0;"><span class="op-6"> {{ post.content }} </span></p>
+            <p class="text-m" style="margin: 0;"><span class="op-6"> {{ object.content }} </span></p>
             <div class="text-sm op-5">
-              <a class="text-black mr-2" href="#"> Curso {{ post.course }} </a>
+              <a class="text-black mr-2" href="#"> Curso {{ object.course }} </a>
             </div>
           </div>
         </div>
       </div>
     </div>
 </div>
-  {% endfor %}
+
 
 
 {% endblock body %}
