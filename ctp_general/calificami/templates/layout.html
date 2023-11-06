@@ -1,70 +1,93 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
         
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.rawgit.com/mfd/f3d96ec7f0e8f034cc22ea73b3797b59/raw/856f1dbb8d807aabceb80b6d4f94b464df461b3e/gotham.css">
-        <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdn.rawgit.com/mfd/f3d96ec7f0e8f034cc22ea73b3797b59/raw/856f1dbb8d807aabceb80b6d4f94b464df461b3e/gotham.css">
+      <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 
-        <title> CTD {{ title }} </title>
+      <title> CTD {{ title }} </title>
 
-    </head>
-    <body>
-      <header>
-        <nav class="mobile-nav">
+  </head>
+  <body>
+    <header>
+      <nav class="mobile-nav">
 
-          {% if user.is_authenticated %}
-          <a href="{% url 'profile' %}">Mi perfil</a>
-          <a href="{% url 'logout' %}">Cerrar Sesión</a>
-          <a href="{% url 'post-create' %}">Nueva Opinión</a>
-          
-          {% else %}
+        {% if user.is_authenticated %}
+        <a href="{% url 'profile' %}">Mi perfil</a>
+        <a href="{% url 'logout' %}">Cerrar Sesión</a>
+        <a href="{% url 'post-create' %}">Nueva Opinión</a>
         
-          <a href="{% url 'login' %}">Ingresar</a>
-          <a href="{% url 'register' %}">Creá tu cuenta</a>
-          {% endif %}
-
-          <a href="{% url 'ctd-about' %}">Quienes somos</a>
-          <a href="{% url 'ctd-privacy' %}">Privacidad</a>
-          <a href="#">Uso correcto</a>
-          <a href="#">Contacto</a>
-          <a href="#">FAQ</a>
-
-       
-
-        </nav>
-        <button class="hamburger">
-          <div class="bar"></div>
-        </button>
-
-        <div class="brand">
-          <a href="{% url 'ctd-index' %}" class="brandMain">CalificaTuDocente</da>
-          <a href="{% url 'ctd-index' %}" class="brandSub">Por estudiantes, para estudiantes</a>
-        </div>
-      </header>
-
-      <main>
-        {% if messages %}
-          {% for message in messages%}
-            <div class="alert alert-{{ message.tags }}"> {{ message }} </div>
-          {% endfor %}
+        {% else %}
+      
+        <a href="{% url 'login' %}">Ingresar</a>
+        <a href="{% url 'register' %}">Creá tu cuenta</a>
         {% endif %}
 
-        {% block body %}
-        {% endblock %}
-      </main>
+        <a href="{% url 'ctd-about' %}">Quienes somos</a>
+        <a href="{% url 'ctd-privacy' %}">Privacidad</a>
+        <a href="#">Uso correcto</a>
+        <a href="#">Contacto</a>
+        <a href="#">FAQ</a>
+      </nav>
 
-      <footer>
-        <div class="footerText">Licencia de uso CC-BY-NC-SA - Attribution-NonCommercial-ShareAlike.</div>
-      </footer>
+      <button class="hamburger">
+        <div class="bar"></div>
+      </button>
 
-      <script src="{% static 'js/main.js' %}"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    </body>
+      <div class="brand">
+        <a href="{% url 'ctd-index' %}" class="brandMain">CalificaTuDocente</da>
+        <a href="{% url 'ctd-index' %}" class="brandSub">Por estudiantes, para estudiantes</a>
+      </div>
+    </header>
+
+    <main>
+      {% if messages %}
+        {% for message in messages%}
+          <div class="alert alert-{{ message.tags }}"> {{ message }} </div>
+        {% endfor %}
+      {% endif %}
+
+      {% block body %}
+      {% endblock %}
+    </main>
+
+    {% if is_paginated %}
+      <ul class="pagination justify-content-end" style="margin-right: 0.5vw; margin-bottom: 15vh;">
+      {% if page_obj.has_previous %}
+        <li class="page-item"><a href="?page=1" class="page-link"> << </a></li>
+        <li class="page-item"><a href="?page={{ page_obj.previous_page_number }}" class="page-link"> < </a></li>
+      {% else%}
+        <li class="page-item disabled"><a href="?page=1" class="page-link"> << </a></li>
+      {% endif %}
+
+      {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+          <li class="page-item active"><a href="?page={{ num }}" class="page-link"> {{ num }} </a></li>
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+          <li class="page-item"><a href="?page={{ num }}" class="page-link"> {{ num }} </a></li>
+        {% endif %}
+      {% endfor %}
+
+      {% if page_obj.has_next %}
+        <li class="page-item"><a href="?page={{ page_obj.next_page_number }}" class="page-link"> > </a></li>
+        <li class="page-item"><a href="?page={{ page_obj.paginator.num_pages }}" class="page-link"> >> </a></li>
+      {% endif %}
+      </ul>
+    {% endif %}
+      
+  </body>
+
+  <footer>
+    <div class="footerText">Licencia de uso CC-BY-NC-SA - Attribution-NonCommercial-ShareAlike.</div>
+  </footer>
+
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </html>

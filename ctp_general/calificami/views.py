@@ -17,19 +17,13 @@ def aboutus(request):
 def privacy(request):
     return render(request, 'calificami/privacy.html', {'title': 'Privacidad'} )
 
-'''
-def home(request): 
-    context = {
-        'posts' :  Post.objects.all()
-    }
-    return render(request, 'calificami/home.html', context )
-'''
 
 class PostListView(ListView):
     model = Post
     template_name = 'calificami/home.html'
     context_object_name = 'posts'
     ordering = ['-datePosted']
+    paginate_by = 2
     
 class PostDetailView(DetailView):
     model = Post
