@@ -17,9 +17,9 @@
               <span class="op-6"> Publicado el </span>
               <a class="text-black" href="#"> {{ object.datePosted|date:"D j, E Y" }} </a>
               <span class="op-6"> por </span>
-              <a class="text-black" href="#"> {{ object.author }} </a>
+              <a class="text-black" href="{% url 'user-posts' object.author.username %}"> {{ object.author }} </a>
               {% if object.author == user %}
-              <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}"> Editar </a>
+              <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'o-update' object.id %}"> Editar </a>
               <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}"> Eliminar </a>  
               {% endif %}
             </p>

@@ -59,7 +59,7 @@
     </main>
 
     {% if is_paginated %}
-      <ul class="pagination justify-content-end" style="margin-right: 0.5vw; margin-bottom: 15vh;">
+      <ul class="pagination justify-content-end" style="margin-right: 0.5vw; margin-bottom: 5vh;">
       {% if page_obj.has_previous %}
         <li class="page-item"><a href="?page=1" class="page-link"> << </a></li>
         <li class="page-item"><a href="?page={{ page_obj.previous_page_number }}" class="page-link"> < </a></li>
