@@ -140,3 +140,9 @@ LOGIN_REDIRECT_URL = 'ctd-home'
 
 LOGIN_URL = 'login'
 
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = '2c30580e75f00f'
+EMAIL_HOST_PASSWORD = '********4c2e'
+EMAIL_PORT = '25'
+
+# calificatudocente.info@gmail.com contra passwordforctdaccount123 app password gbqn ngpy cjro uwkp
