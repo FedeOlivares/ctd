@@ -140,9 +140,13 @@ LOGIN_REDIRECT_URL = 'ctd-home'
 
 LOGIN_URL = 'login'
 
-EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
-EMAIL_HOST_USER = '2c30580e75f00f'
-EMAIL_HOST_PASSWORD = '********4c2e'
-EMAIL_PORT = '25'
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'CalificaTuDocente'
+EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
 
-# calificatudocente.info@gmail.com contra passwordforctdaccount123 app password gbqn ngpy cjro uwkp
+
+# calificatudocente.info@gmail.com contra passwordforctdaccount123 app password ijgy wwou qdty vgba
