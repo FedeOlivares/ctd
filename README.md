@@ -1,4 +1,4 @@
-# CTP
+# ctd
 
 This is the beggining of a web app for my portfolio. 
 Is being built with django, will use bootstrap 5 and SQLite3. 

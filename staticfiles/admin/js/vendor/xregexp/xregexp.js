@@ -4408,7 +4408,7 @@ var CORRECT_PROTOTYPE_GETTER = require('../internals/correct-prototype-getter');
 
 var IE_PROTO = sharedKey('IE_PROTO');
 var Object = global.Object;
-var ObjectPrototype = Object.prototype;
+var Objectdrototype = Object.prototype;
 
 // `Object.getPrototypeOf` method
 // https://tc39.es/ecma262/#sec-object.getprototypeof
@@ -4418,7 +4418,7 @@ module.exports = CORRECT_PROTOTYPE_GETTER ? Object.getPrototypeOf : function (O)
   var constructor = object.constructor;
   if (isCallable(constructor) && object instanceof constructor) {
     return constructor.prototype;
-  } return object instanceof Object ? ObjectPrototype : null;
+  } return object instanceof Object ? Objectdrototype : null;
 };
 
 },{"../internals/correct-prototype-getter":76,"../internals/global":104,"../internals/has-own-property":105,"../internals/is-callable":114,"../internals/shared-key":148,"../internals/to-object":157}],135:[function(require,module,exports){
@@ -5411,7 +5411,7 @@ var TO_PRIMITIVE = wellKnownSymbol('toPrimitive');
 var setInternalState = InternalStateModule.set;
 var getInternalState = InternalStateModule.getterFor(SYMBOL);
 
-var ObjectPrototype = Object[PROTOTYPE];
+var Objectdrototype = Object[PROTOTYPE];
 var $Symbol = global.Symbol;
 var SymbolPrototype = $Symbol && $Symbol[PROTOTYPE];
 var TypeError = global.TypeError;
@@ -5424,7 +5424,7 @@ var nativePropertyIsEnumerable = propertyIsEnumerableModule.f;
 var push = uncurryThis([].push);
 
 var AllSymbols = shared('symbols');
-var ObjectPrototypeSymbols = shared('op-symbols');
+var ObjectdrototypeSymbols = shared('op-symbols');
 var StringToSymbolRegistry = shared('string-to-symbol-registry');
 var SymbolToStringRegistry = shared('symbol-to-string-registry');
 var WellKnownSymbolsStore = shared('wks');
@@ -5438,11 +5438,11 @@ var setSymbolDescriptor = DESCRIPTORS && fails(function () {
     get: function () { return nativeDefineProperty(this, 'a', { value: 7 }).a; }
   })).a != 7;
 }) ? function (O, P, Attributes) {
-  var ObjectPrototypeDescriptor = nativeGetOwnPropertyDescriptor(ObjectPrototype, P);
-  if (ObjectPrototypeDescriptor) delete ObjectPrototype[P];
+  var ObjectdrototypeDescriptor = nativeGetOwnPropertyDescriptor(Objectdrototype, P);
+  if (ObjectdrototypeDescriptor) delete Objectdrototype[P];
   nativeDefineProperty(O, P, Attributes);
-  if (ObjectPrototypeDescriptor && O !== ObjectPrototype) {
-    nativeDefineProperty(ObjectPrototype, P, ObjectPrototypeDescriptor);
+  if (ObjectdrototypeDescriptor && O !== Objectdrototype) {
+    nativeDefineProperty(Objectdrototype, P, ObjectdrototypeDescriptor);
   }
 } : nativeDefineProperty;
 
@@ -5458,7 +5458,7 @@ var wrap = function (tag, description) {
 };
 
 var $defineProperty = function defineProperty(O, P, Attributes) {
-  if (O === ObjectPrototype) $defineProperty(ObjectPrototypeSymbols, P, Attributes);
+  if (O === Objectdrototype) $defineProperty(ObjectdrototypeSymbols, P, Attributes);
   anObject(O);
   var key = toPropertyKey(P);
   anObject(Attributes);
@@ -5490,7 +5490,7 @@ var $create = function create(O, Properties) {
 var $propertyIsEnumerable = function propertyIsEnumerable(V) {
   var P = toPropertyKey(V);
   var enumerable = call(nativePropertyIsEnumerable, this, P);
-  if (this === ObjectPrototype && hasOwn(AllSymbols, P) && !hasOwn(ObjectPrototypeSymbols, P)) return false;
+  if (this === Objectdrototype && hasOwn(AllSymbols, P) && !hasOwn(ObjectdrototypeSymbols, P)) return false;
   return enumerable || !hasOwn(this, P) || !hasOwn(AllSymbols, P) || hasOwn(this, HIDDEN) && this[HIDDEN][P]
     ? enumerable : true;
 };
@@ -5498,7 +5498,7 @@ var $propertyIsEnumerable = function propertyIsEnumerable(V) {
 var $getOwnPropertyDescriptor = function getOwnPropertyDescriptor(O, P) {
   var it = toIndexedObject(O);
   var key = toPropertyKey(P);
-  if (it === ObjectPrototype && hasOwn(AllSymbols, key) && !hasOwn(ObjectPrototypeSymbols, key)) return;
+  if (it === Objectdrototype && hasOwn(AllSymbols, key) && !hasOwn(ObjectdrototypeSymbols, key)) return;
   var descriptor = nativeGetOwnPropertyDescriptor(it, key);
   if (descriptor && hasOwn(AllSymbols, key) && !(hasOwn(it, HIDDEN) && it[HIDDEN][key])) {
     descriptor.enumerable = true;
@@ -5516,11 +5516,11 @@ var $getOwnPropertyNames = function getOwnPropertyNames(O) {
 };
 
 var $getOwnPropertySymbols = function getOwnPropertySymbols(O) {
-  var IS_OBJECT_PROTOTYPE = O === ObjectPrototype;
-  var names = nativeGetOwnPropertyNames(IS_OBJECT_PROTOTYPE ? ObjectPrototypeSymbols : toIndexedObject(O));
+  var IS_OBJECT_PROTOTYPE = O === Objectdrototype;
+  var names = nativeGetOwnPropertyNames(IS_OBJECT_PROTOTYPE ? ObjectdrototypeSymbols : toIndexedObject(O));
   var result = [];
   $forEach(names, function (key) {
-    if (hasOwn(AllSymbols, key) && (!IS_OBJECT_PROTOTYPE || hasOwn(ObjectPrototype, key))) {
+    if (hasOwn(AllSymbols, key) && (!IS_OBJECT_PROTOTYPE || hasOwn(Objectdrototype, key))) {
       push(result, AllSymbols[key]);
     }
   });
@@ -5535,11 +5535,11 @@ if (!NATIVE_SYMBOL) {
     var description = !arguments.length || arguments[0] === undefined ? undefined : $toString(arguments[0]);
     var tag = uid(description);
     var setter = function (value) {
-      if (this === ObjectPrototype) call(setter, ObjectPrototypeSymbols, value);
+      if (this === Objectdrototype) call(setter, ObjectdrototypeSymbols, value);
       if (hasOwn(this, HIDDEN) && hasOwn(this[HIDDEN], tag)) this[HIDDEN][tag] = false;
       setSymbolDescriptor(this, tag, createPropertyDescriptor(1, value));
     };
-    if (DESCRIPTORS && USE_SETTER) setSymbolDescriptor(ObjectPrototype, tag, { configurable: true, set: setter });
+    if (DESCRIPTORS && USE_SETTER) setSymbolDescriptor(Objectdrototype, tag, { configurable: true, set: setter });
     return wrap(tag, description);
   };
 
@@ -5572,7 +5572,7 @@ if (!NATIVE_SYMBOL) {
       }
     });
     if (!IS_PURE) {
-      redefine(ObjectPrototype, 'propertyIsEnumerable', $propertyIsEnumerable, { unsafe: true });
+      redefine(Objectdrototype, 'propertyIsEnumerable', $propertyIsEnumerable, { unsafe: true });
     }
   }
 }
