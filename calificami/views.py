@@ -12,14 +12,20 @@ from .models import Post
 
 
 def index(request): 
-    return render(request, 'calificami/index.html', {'title': 'Home'} )
+    is_mobile = request.user_agent.is_mobile
+    return render(request, 'calificami/index.html', {'title': 'Home'}, 
+                   {'is_mobile': is_mobile})
 
 
 def aboutus(request): 
-    return render(request, 'calificami/about.html', {'title': 'Nosotros'} )
+    is_mobile = request.user_agent.is_mobile
+    return render(request, 'calificami/about.html', {'title': 'Nosotros'},
+                   {'is_mobile': is_mobile} )
 
 def privacy(request):
-    return render(request, 'calificami/privacy.html', {'title': 'Privacidad'} )
+    is_mobile = request.user_agent.is_mobile
+    return render(request, 'calificami/privacy.html', {'title': 'Privacidad'}, 
+                   {'is_mobile': is_mobile} )
 
 
 class PostListView(ListView):

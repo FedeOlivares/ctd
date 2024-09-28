@@ -8909,7 +8909,7 @@ function addToPrefiltersOrTransports( structure ) {
 }
 
 // Base inspection function for prefilters and transports
-function inspectdrefiltersOrTransports( structure, options, originalOptions, jqXHR ) {
+function inspectPrefiltersOrTransports( structure, options, originalOptions, jqXHR ) {
 
 	var inspected = {},
 		seekingTransport = ( structure === transports );
@@ -9388,7 +9388,7 @@ jQuery.extend( {
 		}
 
 		// Apply prefilters
-		inspectdrefiltersOrTransports( prefilters, s, options, jqXHR );
+		inspectPrefiltersOrTransports( prefilters, s, options, jqXHR );
 
 		// If request was aborted inside a prefilter, stop there
 		if ( completed ) {
@@ -9491,7 +9491,7 @@ jQuery.extend( {
 		jqXHR.fail( s.error );
 
 		// Get transport
-		transport = inspectdrefiltersOrTransports( transports, s, options, jqXHR );
+		transport = inspectPrefiltersOrTransports( transports, s, options, jqXHR );
 
 		// If no transport, we auto-abort
 		if ( !transport ) {

@@ -1,107 +1,43 @@
-body {
-    font-family: 'Gotham', sans-serif;
-    background-color: #75583F;
-    height: 100%;
-}
-
-/* until line 130 its all about the menu and brand */
-
-*,
-*::after,
-*::before {
-    box-sizing: border-box;
-}
-
 :root {
-    --bar-width: 50px;
-    --bar-height: 8px;
-    --hamburger-gap: 7px;
-    --foreground: black;
-    --background: white;
-    --ham-margin: 3vh;
-    --animation-timing: 300ms ease-in-out;
-    --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+    --bg_color : #c7b9ae;
+    --text_main : #383838;
+    --accent_color : #2D848A;
+    --card_bg : #F5F5F5;
+    --card-outline : #B3B3B3;
 }
 
-.hamburger {
-    --x-width: calc(var(--hamburger-height) * 1.41421356237);
-    background: none;
-    border-style: none;
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg_color);
+}
+
+.header {
+    padding: 0.5vh;
+    height: 9vh;
     display: flex;
-    flex-direction: column;
-    gap: var(--hamburger-gap);
-    border-radius: 9999px;
-    width: max-content;
-    position: absolute;
-    top: var(--ham-margin);
-    left: var(--ham-margin);
-    z-index: 99;
-    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    
 }
 
-.hamburger .bar,
-.hamburger::before,
-.hamburger::after {
-    content: "";
-    border-radius: 9999px;
-    transform-origin: left center;
-    width: var(--bar-width);
-    height: var(--bar-height);
-    background-color: var(--foreground);
-    transition: opacity var(--animation-timing), width var(--animation-timing), transform var(--animation-timing), background-color var(--animation-timing);
+.nav_index {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0.5rem;
+    background-color: var(--accent_color);
+    padding: 1vh;
+    gap: 7vw;
 }
 
-.hamburger.is-active .bar {
-    opacity: 0;
-    width: 0;
-}
-
-.hamburger.is-active::before {
-    transform: rotate(45deg) translate(0, calc(var(--bar-height) / -2));
-    width: var(--x-width);
-}
-
-.hamburger.is-active::after {
-    transform: rotate(-45deg) translate(0, calc(var(--bar-height) / 2));
-    width: var(--x-width);
-}
-
-.mobile-nav {
-    display: block;
-    position: fixed;
-    top: 0;
-    right: 100%;
-    width: 45%;
-    min-height: 100vh;
-    display: block;
-    z-index: 98;
-    background-color: #393127;
-    padding-top: 120px;
-    transition: 0.4s;
-    opacity: 0.85;
-}
-
-.mobile-nav.is-active {
-    right: 55%;
-}
-
-.mobile-nav a {
-    font-weight: 300;
-    font-size: 1.1rem;
-    display: block;
-    text-align: center;
-    width: 100%;
-    max-width: 200px;
-    margin: 16px auto 0;
-    margin-bottom: 16px;
-    padding: 8px;
-    color: #B6ACAA;
+.nav_index a {
+    color: inherit;
     text-decoration: none;
 }
 
-.mobile-nav a:hover {
-    background-color: #8A7360;
-
+.right_nav button,
+.left_nav button {
+    background-color: transparent;
+    border-color: transparent;
 }
 
 .brand {
@@ -363,10 +299,6 @@ body {
     color: #B6ACAA;
 }
 
-.content-section {
-    text-align: ;
-
-}
 
 .text-primary a {
     color: #B6ACAA

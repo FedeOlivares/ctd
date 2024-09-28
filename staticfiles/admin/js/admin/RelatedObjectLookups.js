@@ -64,7 +64,7 @@
         win.close();
     }
 
-    function showRelatedObjectdopup(triggeringLink) {
+    function showRelatedObjectPopup(triggeringLink) {
         return showAdminPopup(triggeringLink, /^(change|add|delete)_/, false);
     }
 
@@ -117,7 +117,7 @@
         });
     }
 
-    function dismissAddRelatedObjectdopup(win, newId, newRepr) {
+    function dismissAddRelatedObjectPopup(win, newId, newRepr) {
         const name = removePopupIndex(win.name);
         const elem = document.getElementById(name);
         if (elem) {
@@ -147,7 +147,7 @@
         win.close();
     }
 
-    function dismissChangeRelatedObjectdopup(win, objId, newRepr, newId) {
+    function dismissChangeRelatedObjectPopup(win, objId, newRepr, newId) {
         const id = removePopupIndex(win.name.replace(/^edit_/, ''));
         const selectsSelector = interpolate('#%s, #%s_from, #%s_to', [id, id, id]);
         const selects = $(selectsSelector);
@@ -171,7 +171,7 @@
         win.close();
     }
 
-    function dismissDeleteRelatedObjectdopup(win, objId) {
+    function dismissDeleteRelatedObjectPopup(win, objId) {
         const id = removePopupIndex(win.name.replace(/^delete_/, ''));
         const selectsSelector = interpolate('#%s, #%s_from, #%s_to', [id, id, id]);
         const selects = $(selectsSelector);
@@ -189,16 +189,16 @@
 
     window.showRelatedObjectLookupPopup = showRelatedObjectLookupPopup;
     window.dismissRelatedLookupPopup = dismissRelatedLookupPopup;
-    window.showRelatedObjectdopup = showRelatedObjectdopup;
+    window.showRelatedObjectPopup = showRelatedObjectPopup;
     window.updateRelatedObjectLinks = updateRelatedObjectLinks;
-    window.dismissAddRelatedObjectdopup = dismissAddRelatedObjectdopup;
-    window.dismissChangeRelatedObjectdopup = dismissChangeRelatedObjectdopup;
-    window.dismissDeleteRelatedObjectdopup = dismissDeleteRelatedObjectdopup;
+    window.dismissAddRelatedObjectPopup = dismissAddRelatedObjectPopup;
+    window.dismissChangeRelatedObjectPopup = dismissChangeRelatedObjectPopup;
+    window.dismissDeleteRelatedObjectPopup = dismissDeleteRelatedObjectPopup;
     window.dismissChildPopups = dismissChildPopups;
 
     // Kept for backward compatibility
-    window.showAddAnotherPopup = showRelatedObjectdopup;
-    window.dismissAddAnotherPopup = dismissAddRelatedObjectdopup;
+    window.showAddAnotherPopup = showRelatedObjectPopup;
+    window.dismissAddAnotherPopup = dismissAddRelatedObjectPopup;
 
     window.addEventListener('unload', function(evt) {
         window.dismissChildPopups();
@@ -216,7 +216,7 @@
                 const event = $.Event('django:show-related', {href: this.href});
                 $(this).trigger(event);
                 if (!event.isDefaultPrevented()) {
-                    showRelatedObjectdopup(this);
+                    showRelatedObjectPopup(this);
                 }
             }
         });
