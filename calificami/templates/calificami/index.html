@@ -1,8 +1,33 @@
 {% extends "layout.html" %}
 
 
+
+{% block nav %}
+
+    <nav class="header">
+        <div class="nav_index"> 
+            <div class="left_nav">
+                <button class="nav_item"> <a href="privacy"> Privacidad </a></button>
+                <button class="nav_item">  <a href="about"> Nosotros </a> </button>
+            </div>
+            <div class="right_nav">
+                <button class="nav_item">  <a href="index"> Contacto </a> </button>
+                <button class="nav_item">  <a href="../register"> Cuenta </a> </button>
+            </div>
+        </div>    
+    </nav>
+
+{% endblock %}
+
+
+
+
+
+
+
  
 {% block body %}
+
 <div>
     <div class="welcomeScroll">
         <div class="section">Todo lo que queres saber de tu facultad en un solo lugar</div>
